@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Data Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Crime Data Dashboard (2000–2020)</h1>
+
+  <div class="button-group">
+    <button onclick="loadGraph('all')">📊 All Crimes</button>
+    <button onclick="loadGraph('assault')">🛑 Assault</button>
+    <button onclick="loadGraph('burglary')">🚪 Burglary</button>
+    <button onclick="loadGraph('robbery')">💰 Robbery</button>
+    <button onclick="loadGraph('vehicle_theft')">🚗 Vehicle Theft</button>
+  </div>
+
+  <iframe id="graph" src="plots/all.html"></iframe>
+
+  <script>
+    function loadGraph(type) {
+      document.getElementById('graph').src = `plots/${type}.html`;
+    }
+  </script>
+</body>
+</html>
